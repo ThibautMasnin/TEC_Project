@@ -99,7 +99,7 @@
             <div class="modal-header">
                 <h5 class="modal-title">Add</h5>
             </div>
-            <form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
+            <form method="post" action="<?php ROOT_URL . "/view/user/insert.php"); ?>">
                 <div class="modal-body">
                     <input type="hidden" name="controller" value="UserController">
                     <input type="hidden" name="action" value="register">
@@ -119,8 +119,8 @@
                                     <td><input type="text" class="input-update" name="name" /></td>
                                 </tr>
                                 <tr>
-                                    <th>Autoriser :</th>
-                                    <td><input type="checkbox" class="input-update" name="autorisation" /></td>
+                                    <th>Prenom : </th>
+                                    <td><input type="text" class="input-update" name="surname" /></td>
                                 </tr>
                                 <tr>
                                     <td><input type="hidden" class="input-update" /></td>
