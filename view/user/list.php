@@ -1,5 +1,9 @@
 <?php
     require_once(__DIR__ . "/../page/header.php");
+    if (!LOGGED_IN) { 
+        header("Location: " . ROOT_URL . "/view/user/login.php");
+        exit();
+    }
 ?>
 
 <div class="container">
@@ -11,8 +15,8 @@
             <tr>
                 <th>ID</th>
                 <th>Photo</th>
+                <th>Prénom</th>
                 <th>Nom</th>
-                <th>Autorisation</th>
                 <th>Gestion</th>
             </tr>
         </thead>
@@ -20,8 +24,8 @@
             <tr>
                 <td>1</td>
                 <td><img src="<?php echo ROOT_URL ?>/view/asset/face.png" width="35" height="35" alt="Tete"></td>
-                <td>Michel</td>
-                <td>autorisé</td>
+                <td>John</td>
+                <td>Doe</td>
                 <td>
                     <div class="row">
                         <div class="col-md-4">
@@ -99,7 +103,7 @@
             <div class="modal-header">
                 <h5 class="modal-title">Add</h5>
             </div>
-            <form method="post" action="<?php ROOT_URL . "/view/user/insert.php"); ?>">
+            <form method="post" action="<?php ROOT_URL . "/model/insert.php" ?>">
                 <div class="modal-body">
                     <input type="hidden" name="controller" value="UserController">
                     <input type="hidden" name="action" value="register">

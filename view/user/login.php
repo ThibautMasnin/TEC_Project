@@ -1,8 +1,8 @@
 <?php
-    include("initdb.php")
     require_once(__DIR__ . "/../page/header.php");
+    include(__DIR__."/../../model/initdb.php");
     if (LOGGED_IN) {
-        header('Location: ' . ROOT_URL . "/view/user/camera.php");
+        header("Location: " . ROOT_URL . "/view/user/camera.php");
         exit();
     }
 ?>
@@ -13,12 +13,9 @@
             <h3 class="panel-title">Connexion</h3>
         </div><br/>
         <div class="panel-body">
-            <form method="post" action="<?php ROOT_URL . "/view/user/verif.php" ?>">
+            <form method="post" action="<?php ROOT_URL . "/model/verif.php" ?>">
                 <div class="form-group">
                     <input type="text" placeholder="Nom d'utilisateur" name="username" class="form-control">
-                </div><br/>
-                <div class="form-group">
-                    <input type="text" placeholder="Reference camera" name="reference" class="form-control">
                 </div><br/>
                 <div class="form-group">
                     <input type="password" placeholder="Mot de passe" name="password" class="form-control">

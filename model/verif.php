@@ -1,5 +1,5 @@
 <?php 
-	if(isset($_POST['submit'])){
+	if(isset($_POST['submit'])) {
         //test si les champs du formulaire ne sont pas vides(reference à ajouter dans le formulaire de login)
 		if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['reference'])){ 
 			try{
@@ -10,17 +10,18 @@
 				$res = $sql->fetch();				
 				session_start();
 				if(!empty($res['idProprio'])){
-                    $_SESSION['idProprio']=$res['idProprio'];					
-					header('Location: ' . ROOT_URL . "/view/user/camera.php");
+                	$_SESSION['idProprio']=$res['idProprio'];					
+					header("Location: " . ROOT_URL . "/view/user/camera.php");
 				}else{
-					header('Location: ' . ROOT_URL . "/view/user/login.php");
+					header("Location: " . ROOT_URL . "/view/user/login.php");
 				}
 			}
 			catch (PDOException $e){
 				echo $e->getMessage();
 			}	
 		}
-	}else{
-		header('Location: ' . ROOT_URL . "/view/user/login.php");
+	}
+	else {
+		header("Location: " . ROOT_URL . "/view/user/login.php");
 	}
 ?>	
