@@ -1,6 +1,7 @@
 <?php 
-    require_once(__DIR__ . "/../page/header.php"); 
-    if (!LOGGED_IN) { 
+    require_once(__DIR__ . "/../page/header.php");
+ 
+    if (!isset($_SESSION["login"])) { 
         header('Location: ' . ROOT_URL . "/view/user/login.php");
         exit();
     }

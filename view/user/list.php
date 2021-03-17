@@ -1,6 +1,6 @@
 <?php
     require_once(__DIR__ . "/../page/header.php");
-    if (!LOGGED_IN) { 
+    if (!isset($_SESSION["login"])) { 
         header("Location: " . ROOT_URL . "/view/user/login.php");
         exit();
     }
@@ -103,7 +103,7 @@
             <div class="modal-header">
                 <h5 class="modal-title">Add</h5>
             </div>
-            <form method="post" action="<?php ROOT_URL . "/model/insert.php" ?>">
+            <form method="post" action="<?php echo "../../model/insert.php" ?>">
                 <div class="modal-body">
                     <input type="hidden" name="controller" value="UserController">
                     <input type="hidden" name="action" value="register">

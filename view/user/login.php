@@ -1,7 +1,7 @@
 <?php
     require_once(__DIR__ . "/../page/header.php");
     include(__DIR__."/../../model/initdb.php");
-    if (LOGGED_IN) {
+    if (isset($_SESSION["login"])) {
         header("Location: " . ROOT_URL . "/view/user/camera.php");
         exit();
     }
@@ -13,7 +13,7 @@
             <h3 class="panel-title">Connexion</h3>
         </div><br/>
         <div class="panel-body">
-            <form method="post" action="<?php ROOT_URL . "/model/verif.php" ?>">
+            <form method="post" action="<?php echo "../../model/verif.php" ?>">
                 <div class="form-group">
                     <input type="text" placeholder="Nom d'utilisateur" name="username" class="form-control">
                 </div><br/>
