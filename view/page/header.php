@@ -1,6 +1,11 @@
 <?php 
     require_once(__DIR__ . "/../../config.php");
-    session_start();
+    session_start();        
+    if(isset($_POST["deconnexion"])) {
+        session_destroy();
+        header("Location: " . ROOT_URL . "/view/user/login.php");
+        exit();        
+    }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -49,7 +54,7 @@
                     <form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
                         <input type="hidden" name="controller" value="UserController">
                         <input type="hidden" name="action" value="logout">
-                        <button class="btn btn-outline-danger" type="submit" name="submit" value="submit">Deconnexion</button>
+                        <button class="btn btn-outline-danger" type="submit" name="deconnexion" value="submit">Deconnexion</button>
                     </form>
                 </div>
             <?php endif; ?>

@@ -101,7 +101,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Add</h5>
+                <h5 class="modal-title">Ajouter</h5>
             </div>
             <form method="post" action="<?php echo "../../model/insert.php" ?>">
                 <div class="modal-body">
