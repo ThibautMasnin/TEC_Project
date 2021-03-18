@@ -1,5 +1,6 @@
 <?php 
-    require_once(__DIR__ . "/../../config.php"); 
+    require_once(__DIR__ . "/../../config.php");
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -29,7 +30,7 @@
                 </button>
                 <div id="navbarContent" class="collapse navbar-collapse">
                     <ul class="navbar-nav">
-                        <?php if (LOGGED_IN) : ?>
+                        <?php if (isset($_SESSION["login"])) : ?>
                             <li class="nav-item px-3">
                                 <a class="nav-link" href="<?php echo ROOT_URL ?>/view/user/camera.php">Camera</a>
                             </li>
@@ -43,7 +44,7 @@
                     </ul>
                 </div>
             </div>
-            <?php if (LOGGED_IN) : ?>
+            <?php if (isset($_SESSION["login"])) : ?>
                 <div class="col-lg-2 navbar">
                     <form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
                         <input type="hidden" name="controller" value="UserController">
